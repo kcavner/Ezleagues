@@ -5,13 +5,14 @@ const teamsSchema = require('./Team');
 const matchSchema = new Schema({
   date: {
     type: Date,
-    // date formater
+    // date formater util?
   },
   location: {
     type: String,
     required: true,
   },
   teamsPlaying: [teamsSchema],
+  // score will also have to reference the teamsPlaying object?
   score: {
     type: Number,
     required: true,
