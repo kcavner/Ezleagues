@@ -4,11 +4,34 @@ const { Schema, model } = require('mongoose');
 const sportSchema = new Schema(
     {
         // sport name
+        sportName: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true
+        },
         // sport description
+        sportDescription:{
+            type: String,
+            maxlength: 1000
+        },
         // league dates
+        startDate: {
+            type: Date,
+            required: true,
+            min: new Date()
+        },
         // list of teams registered
-        // schedule
-        // matches or results?
+        registeredTeams: {
+            type: [String],
+        },
+
+        // schedule - not sure if this belongs here.
+        
+        // matches or results? -- not sure about this as such, may need Schema.Types.ObjectId.
+        matchesPlayed: {
+            type: [String],
+        }
     }
 )
 
