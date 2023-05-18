@@ -8,7 +8,9 @@ const organizationSchema = new Schema({
         required: true,
         max_length: 50,
     },
+    // reference the sports schema or separate from sports schema reference a sports array
     sports: [sportSchema],
+    // can reference from the match schema probably easiest
     location: [
         {
             type: String,
