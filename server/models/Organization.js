@@ -1,13 +1,22 @@
 const { Schema, model } = require('mongoose');
-// require any related dbs
+const sportSchema = require('./Sport');
+const Match = require('./Match');
 
-const organizationSchema = new Schema(
-    {
-        // organization name
-        // Sports offered (array of sports)
-        // field/location names (array of fields)
-    }
-)
+const organizationSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        max_length: 50,
+    },
+    sports: [sportSchema],
+    location: [
+        {
+            type: String,
+            ref: 'Match',
+        }
+    ],
+});
+
 const Organization = model('organization', organizationSchema);
 
 module.exports = Organization;

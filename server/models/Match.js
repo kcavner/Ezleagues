@@ -1,15 +1,23 @@
 const { Schema, model } = require('mongoose');
-// require any related dbs
+const teamsSchema = require('./Team');
+// require time formater from utils
 
-const matchSchema = new Schema(
-    {
-        // date of match (and time?)
-        // field/locations
-        // teams playing
-        // score
-    }
-)
+const matchSchema = new Schema({
+  date: {
+    type: Date,
+    // date formater
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  teamsPlaying: [teamsSchema],
+  score: {
+    type: Number,
+    required: true,
+  },
+});
 
-const Match = model('match', matchSchema);
+const Match = model("match", matchSchema);
 
-module.exports = Sport;
+module.exports = Match;
