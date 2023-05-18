@@ -1,1 +1,3 @@
-// require models and export as a destructored object
+// require models here
+
+// module.exports = { models here }
