@@ -131,11 +131,20 @@ const typeDefs = gql`
             roster: [User.name]
         ): Team
         deleteTeam(_id: ID!): Team
-
+        createMatch(
+            date: Date!
+            location: String!
+            teamsPlaying: [Teams]
+        ): Match
+        updateMatch(
+            _id: ID!
+            date: Date!
+            location: String!
+            teamsPlaying: [Teams]
+            score: Int!
+        ): Match
+        deleteMatch(_id: ID!): Match
     }
-        # create match
-        # update match
-        # delete match
 `;
 
 
