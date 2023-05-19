@@ -30,7 +30,7 @@ const sportSchema = new Schema(
         
         // matches or results? -- not sure about this as such, may need Schema.Types.ObjectId.
         matchesPlayed: {
-            type: [String],
+            type: [String], //should this be an array of ids?
         }
     }
 )
