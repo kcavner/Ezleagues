@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const Sport = require('Sport')
+const Sport = require('./Sport');
 // require any related dbs
 
 const teamSchema = new Schema(
