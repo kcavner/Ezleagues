@@ -61,22 +61,81 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        # create user
-        # create org
-        # create sport
-        # create teams
-        # create match
-        # update user
-        # update org
-        # update sport
-        # update team
-        # update match
-        # delete user
-        # delete org
-        # delete sport
-        # delete teams
-        # delete match
+        createUser(
+            firstName: String!
+            lastName: String!
+            userName: String!
+            email: String!
+            password: String!
+            birthDate: Date!
+            organizationName: String!
+            teams: [String]
+            isCommissioner: Boolean
+            isCaptain: Boolean
+            isPlayer: Boolean
+            isLeagueWorker: Boolean
+        ): User
+        updateUser(
+            _id: ID!
+            firstName: String!
+            lastName: String!
+            userName: String!
+            email: String!
+            password: String!
+            birthDate: Date!
+            organizationName: String!
+            teams: [String]
+            isCommissioner: Boolean
+            isCaptain: Boolean
+            isPlayer: Boolean
+            isLeagueWorker: Boolean
+        ): User
+        deleteUser(_id: ID!): User
+        createOrg(
+            name: String!
+            location: String!
+        ): Organization
+        updateOrg(
+            _id: ID!
+            sports: String
+        ): Organization
+        deleteOrg(_id: ID!): Organization
+        createSport(
+            name: String!
+            description: String
+            startDate: Date
+        ): Sport
+        updateSport(
+            _id: ID!
+            name: String!
+            description: String
+            startDate: Date
+            registeredTeams: [String]
+            # schedule
+            matchesPlayed: [String]
+        ): Sport
+        deleteSport(_id: ID!): Sport
+        createTeam(
+            name: String!
+            sportAssociation: String!
+            scheduleOfGames: [Date]
+            teamColors: [String]
+        ): Team
+        updateTeam(
+            _id: ID!
+            name: String!
+            sportAssociation: String!
+            stats: Int!
+            scheduleOfGames: [Date]
+            teamColors: [String]
+            roster: [User.name]
+        ): Team
+        deleteTeam(_id: ID!): Team
+
     }
+        # create match
+        # update match
+        # delete match
 `;
 
 
