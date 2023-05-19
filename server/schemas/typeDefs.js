@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express');
+const { GraphQLDate } = require('graphql-scalars');
 
 const typeDefs = gql`
+ scalar Date
     type Organization {
         _id: ID!
         name: String!
@@ -32,7 +34,7 @@ const typeDefs = gql`
         _id: ID!
         date: Date!
         location: String!
-        teamsPlaying: [Teams]
+        teamsPlaying: [String]
         score: Int!
     }
 
@@ -134,13 +136,13 @@ const typeDefs = gql`
         createMatch(
             date: Date!
             location: String!
-            teamsPlaying: [Teams]
+            teamsPlaying: [Team]
         ): Match
         updateMatch(
             _id: ID!
             date: Date!
             location: String!
-            teamsPlaying: [Teams]
+            teamsPlaying: [Team]
             score: Int!
         ): Match
         deleteMatch(_id: ID!): Match
