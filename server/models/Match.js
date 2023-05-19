@@ -11,7 +11,7 @@ const matchSchema = new Schema({
     type: String,
     required: true,
   },
-  teamsPlaying: [{ type: Schema.Types.ObjectId, ref: 'Team' }],
+  teamsPlaying: [String],
   // score will also have to reference the teamsPlaying object?
   score: {
     type: Number,

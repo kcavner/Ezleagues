@@ -9,7 +9,7 @@ const organizationSchema = new Schema({
         max_length: 50,
     },
     // reference the sports schema or separate from sports schema reference a sports array
-    sports: [{ type: Schema.Types.ObjectId, ref: 'Sport' }],
+    sports: [String],
     // can reference from the match schema probably easiest
     location: [
         {
