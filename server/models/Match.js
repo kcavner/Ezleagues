@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const teamsSchema = require('./Team');
+const Team = require('./Team');
 // require time formater from utils
 
 const matchSchema = new Schema({
@@ -11,7 +11,7 @@ const matchSchema = new Schema({
     type: String,
     required: true,
   },
-  teamsPlaying: [teamsSchema],
+  teamsPlaying: [{ type: Schema.Types.ObjectId, ref: 'Team' }],
   // score will also have to reference the teamsPlaying object?
   score: {
     type: Number,

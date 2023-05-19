@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const sportSchema = require('./Sport');
+const Sport = require('./Sport');
 const Match = require('./Match');
 
 const organizationSchema = new Schema({
@@ -9,7 +9,7 @@ const organizationSchema = new Schema({
         max_length: 50,
     },
     // reference the sports schema or separate from sports schema reference a sports array
-    sports: [sportSchema],
+    sports: [{ type: Schema.Types.ObjectId, ref: 'Sport' }],
     // can reference from the match schema probably easiest
     location: [
         {
