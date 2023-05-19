@@ -27,7 +27,7 @@ const typeDefs = gql`
         stats: Int!
         scheduleOfGames: [Date]
         teamColors: [String]
-        roster: [User]
+        roster: [Schema.Types.ObjectId]
     }
 
     type Match {
@@ -130,19 +130,19 @@ const typeDefs = gql`
             stats: Int!
             scheduleOfGames: [Date]
             teamColors: [String]
-            roster: [User]
+            roster: [Schema.Types.ObjectId]
         ): Team
         deleteTeam(_id: ID!): Team
         createMatch(
             date: Date!
             location: String!
-            teamsPlaying: [Team]
+            teamsPlaying: [Schema.Types.ObjectId]
         ): Match
         updateMatch(
             _id: ID!
             date: Date!
             location: String!
-            teamsPlaying: [Team]
+            teamsPlaying: [Schema.Types.ObjectId]
             score: Int!
         ): Match
         deleteMatch(_id: ID!): Match
