@@ -51,6 +51,32 @@ const typeDefs = gql`
         isPlayer: Boolean
         isLeagueWorker: Boolean
     }
+
+    type Query {
+        organization: [Organization]
+        sport: [Sport]
+        team: [Team]
+        match: [Match]
+        user: [User]
+    }
+
+    type Mutation {
+        # create user
+        # create org
+        # create sport
+        # create teams
+        # create match
+        # update user
+        # update org
+        # update sport
+        # update team
+        # update match
+        # delete user
+        # delete org
+        # delete sport
+        # delete teams
+        # delete match
+    }
 `;
 
 
