@@ -54,6 +54,11 @@ const typeDefs = gql`
         isLeagueWorker: Boolean
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     type Query {
         organization: [Organization]
         sport: [Sport]
@@ -76,7 +81,8 @@ const typeDefs = gql`
             isCaptain: Boolean
             isPlayer: Boolean
             isLeagueWorker: Boolean
-        ): User
+        ): Auth
+        login(email: String!, password: String!): Auth
         updateUser(
             _id: ID!
             firstName: String!
