@@ -15,10 +15,9 @@ const teamSchema = new Schema(
         ref: 'Sport',
         required: true,
     },
+    // this needs to be reworked. used to be a reference to Match. Currently just a string.
     stats:{
-        type: Schema.Types.ObjectId,
-        ref: 'Match',
-        required: true,
+        type: String
     },
     scheduleOfGames:{
         type:[Date],
@@ -27,10 +26,11 @@ const teamSchema = new Schema(
         type:[String],
         required:true
     },
+    // 5.20.23 commented out required while trouble shooting seeding.
     roster:{
         type: Schema.Types.ObjectId,
         ref:"User",
-        required:true
+        // required:true
     }
 }
         // sport association

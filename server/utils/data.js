@@ -48,19 +48,26 @@ const users = [
 // orgs
 const organizations = [ //name, sports list, locations list
     {
-        "organizationName":"Kansas City Recreation League",
-        "sports":["Basketball","Soccer"],
+        "name":"Kansas City Recreation League",
+        "sports":null,
         "location":["Blackhoof Park", "Gezer Park", "Leawood City Park"]
     }
 ]
 // sports
 const sports = [
     {
-        "sportName":"",
-        "sportDescription":"",
-        "startDate":"2023-05-30",
-        "registeredTeams":["teamA._id, teamB._id"],
-        "matchesPlayed":[""]
+        "sportName":"Basketball",
+        "sportDescription":"5v5 Indoor Co-Ed League",
+        "startDate":new Date('2023-05-30'),
+        "registeredTeams":null,
+        "matchesPlayed":null
+    },
+    {
+        "sportName":"Soccer",
+        "sportDescription":"8v8 Outdoor Men's League",
+        "startDate":new Date('2023-05-30'),
+        "registeredTeams":null,
+        "matchesPlayed":null
     }
 ]
 
@@ -68,22 +75,22 @@ const sports = [
 const teams = [ //teamName, sportAssociation, stats, schedule of games, teamColors, roster
     {
         "teamName":"Space Jam",
-        "sportAssociation": sport._id,
+        "sportAssociation": '64698fce58b163fd8ddb8900',
         "stats":"",
         "scheduleOfGames":[new Date('2023-06-01'), new Date('2023-06-05')],
         "teamColors": ['Red', 'White'],
-        "roster": users._id
+        "roster": null
     }
 ]
 // matches
 const matches = [
     {
         "date":new Date('2023-06-01'),
-        "location":location._id,
-        "teamsPlaying":[{team:teamA._id},{team:teamB._id}],
-        "score":2
+        "location": "Blackhoof Park",
+        "teamsPlaying":["teamA", "teamB"],
+        "score":"2-0"
     }
 ]
 
-module.exports = data;
+module.exports = {users, organizations, sports, teams , matches};
 

@@ -5,10 +5,10 @@ const bcrypt = require('bcrypt');
 const userSchema = new Schema(
     {
         // userId
-        userId:{
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
+        // userId:{
+        //     type: Schema.Types.ObjectId,
+        //     default: () => new Types.ObjectId(),
+        // },
         // first
         firstName: {
             type: String,
@@ -61,6 +61,7 @@ const userSchema = new Schema(
             required: true
         },
         // teams that the user belongs to
+        // 5.20.23 reference to the team model?
         teams: {
             type: [String]
         },
