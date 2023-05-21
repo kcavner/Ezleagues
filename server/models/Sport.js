@@ -16,10 +16,10 @@ const sportSchema = new Schema(
             maxlength: 1000
         },
         // league dates
+        // 5.20.23 removed the default date constraint
         startDate: {
             type: Date,
             required: true,
-            min: new Date()
         },
         // list of teams registered
         // 5.20.23 - we need to pull the list of teams for the sport.
