@@ -4,7 +4,7 @@ import { setContext } from '@apollo/client/link/context';
 // we might need to use react-router-dom for internal hyperlinks?
 
 import Home from './pages/home';
-import Login from './pages/login';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',

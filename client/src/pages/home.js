@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Login from "./login"
 
-function Home(){
+function Navbar() {
+    const [currentPage, setCurrentPage] = useState('login');
+  
+    const handlePageChange = (page) => {
+      setCurrentPage(page);
+    };
+  
     return (
-        <div>
-            <h1>home</h1>
-        </div>
-    )
-}
+  <div>
+  <header>
+    <div className='name'style={{ cursor: "pointer" }} onClick={() => handlePageChange('login')}>EZLeagues</div>
+      <nav>
+       
+            <a className='navLink' href="#" onClick={() => handlePageChange('login')}>
+              login
+            </a>
+      </nav>
+  </header>
+    {currentPage === 'login' && <Login />}
+   </div>
+    );
+  }
 
-export default Home
+  export default Navbar
