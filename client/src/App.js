@@ -1,10 +1,24 @@
 import React from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+// we might need to use react-router-dom for internal hyperlinks?
 
-import Home from './pages/home'
+import Home from './pages/home';
+import Login from './pages/login';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+// Auth middleware that attaches JWT to every request as an Auth header
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return { headers: { ...headers, authorization: token ? `Bearer ${token}` : '' } };
+});
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  // implements the authLink before making a request to the gql API
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
