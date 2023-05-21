@@ -1,11 +1,12 @@
 const connection = require('../config/connection');
 const { User, Organization, Sport, Team, Match } = require('../models');
-const { users } = require('./data');
+const  users  = require('./data');
 
 connection.on('error', (err)=> err);
 
 connection.once('open', async ()=> {
     console.log('connected');
+    console.log('user data: ', users);
 
     // drop existing data
     await User.deleteMany({});

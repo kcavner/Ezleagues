@@ -22,15 +22,19 @@ const sportSchema = new Schema(
             min: new Date()
         },
         // list of teams registered
+        // 5.20.23 - we need to pull the list of teams for the sport.
         registeredTeams: {
-            type: [String],
+            type: Schema.Types.ObjectId,
+            ref: 'Team'
         },
 
         // schedule - not sure if this belongs here.
         
         // matches or results? -- not sure about this as such, may need Schema.Types.ObjectId.
+        // 5.20.23 - changing this to a reeference to Match model
         matchesPlayed: {
-            type: [String], //should this be an array of ids?
+            type: Schema.Types.ObjectId,
+            ref: 'Match'
         }
     }
 )

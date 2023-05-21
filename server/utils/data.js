@@ -68,7 +68,7 @@ const sports = [
 const teams = [ //teamName, sportAssociation, stats, schedule of games, teamColors, roster
     {
         "teamName":"Space Jam",
-        "sportAssociation": sport._id,
+        "sportAssociation": "Sport._id",
         "stats":"",
         "scheduleOfGames":[new Date('2023-06-01'), new Date('2023-06-05')],
         "teamColors": ['Red', 'White'],
@@ -79,11 +79,11 @@ const teams = [ //teamName, sportAssociation, stats, schedule of games, teamColo
 const matches = [
     {
         "date":new Date('2023-06-01'),
-        "location":location._id,
-        "teamsPlaying":[{team:teamA._id},{team:teamB._id}],
+        "location": "Blackhoof Park",
+        "teamsPlaying":[{"team":"teamA._id"},{"team":"teamB._id"}],
         "score":2
     }
 ]
 
-module.exports = data;
+module.exports = users;
 
