@@ -168,15 +168,15 @@ const organizations = [ //name, sports list, locations list
 // sports
 const sports = [
     {
-        "sportName":"Basketball",
-        "sportDescription":"5v5 Indoor Co-Ed League",
+        "name":"Basketball",
+        "description":"5v5 Indoor Co-Ed League",
         "startDate":new Date('2023-05-30'),
         "registeredTeams" : ["646ad02f80f96f3ea9dba011",'646ad838b11ac0f5eeedbd99'],
         "matchesPlayed":null
     },
     {
-        "sportName":"Soccer",
-        "sportDescription":"8v8 Outdoor Men's League",
+        "name":"Soccer",
+        "description":"8v8 Outdoor Men's League",
         "startDate":new Date('2023-05-30'),
         "registeredTeams":null,
         "matchesPlayed":null
@@ -186,19 +186,19 @@ const sports = [
 // teams
 const teams = [ //teamName, sportAssociation, stats, schedule of games, teamColors, roster
     {
-        "teamName":"Space Jam",
-        "sportAssociation": '64698fce58b163fd8ddb8900',
+        "name":"Space Jam",
+        "association": '64698fce58b163fd8ddb8900',
         "stats":"",
         "scheduleOfGames":[new Date('2023-06-01'), new Date('2023-06-05')],
-        "teamColors": ['Red', 'White'],
+        "teamColor": ['Red', 'White'],
         "roster": ['646ad838b11ac0f5eeedbd8e', '646ad838b11ac0f5eeedbd9c', '646ad838b11ac0f5eeedbda0', '646ad838b11ac0f5eeedbda2', '646ad838b11ac0f5eeedbda4',]
     },
     {
-        "teamName":"Nuggets",
-        "sportAssociation": '64698fce58b163fd8ddb8900',
+        "name":"Nuggets",
+        "association": '64698fce58b163fd8ddb8900',
         "stats":"",
         "scheduleOfGames":[new Date('2023-06-01'), new Date('2023-06-05')],
-        "teamColors": ['Blue', 'Yellow'],
+        "teamColor": ['Blue', 'Yellow'],
         "roster": ['646ad244e99bdd9498bd2ff0', '646ad244e99bdd9498bd2ffc', '646ad244e99bdd9498bd2ffe']
     }
 ]
