@@ -48,17 +48,96 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    // updateUser we need to choose what is available to be updated
+    deleteUser: async (parent, { id }) => {
+      const user = await User.findById(id);
+      if (!user) {
+        throw new Error(`No user found with this ID: ${id}`);
+      }
+      await user.remove();
+      return user;
+    },
     createOrg: async (parent, { name }) => {
       return Organization.create({ name });
     },
-    createSport: async (parent, { name }) => {
-      return Sport.create({ name });
+    updateOrg: async (parent, { id, name }) => {
+      const organization = await Organization.findById(id);
+      if (!organization) {
+        throw new Error(`No organization with ID: ${id}`);
+      }
+      organization.name = name;
+      await organization.save();
+      return organization;
     },
-    createTeam: async (parent, { name }) => {
-      return Team.create({ name });
+    deleteOrg: async (parent, { id }) => {
+      const organization = await Organization.findById(id);
+      if (!organization) {
+        throw new Error(`No organization with ID: ${id}`);
+      }
+      await organization.remove();
+      return organization;
     },
-    createMatch: async (parent, { name }) => {
-      return Match.create({ name });
+    createSport: async (parent, { name, description, startDate }) => {
+      return Sport.create({ name, description, startDate });
+    },
+    updateSport: async (parent, { id, name, description, startDate }) => {
+      const sport = await Sport.findById(id);
+      if (!sport) {
+        throw new Error(`No sport with ID: ${id}`);
+      }
+      sport.name = name;
+      sport.description = description;
+      sport.startDate = startDate;
+      await sport.save();
+      return sport;
+    },
+    deleteSport: async (parent, { id }) => {
+      const sport = await Sport.findById(id);
+      if (!sport) {
+        throw new Error(`No sport with ID: ${id}`);
+      }
+      await sport.remove();
+      return sport;
+    },
+    createTeam: async (parent, { name, stats, scheduleOfGames, teamColors }) => {
+      return Team.create({ name, stats, scheduleOfGames, teamColors });
+    },
+    updateTeam: async (parent, { id, name }) => {
+      const team = await Team.findById(id);
+      if (!team) {
+        throw new Error(`No team with ID: ${id}`);
+      }
+      team.name = name;
+      await team.save();
+      return team;
+    },
+    deleteTeam: async (parent, { id }) => {
+      const team = await Team.findById(id);
+      if (!team) {
+        throw new Error(`No team with ID: ${id}`);
+      }
+      await team.remove();
+      return team;
+    },
+    createMatch: async (parent, { date, location, score }) => {
+      return Match.create({ date, location, score });
+    },
+    updateMatch: async (parent, { id, score }) => {
+      const match = await Match.findById(id);
+      if (!match) {
+        throw new Error(`No match with ID: ${id}`);
+      }
+      match.score = score;
+      await match.save();
+      return match;
+    },
+    deleteMatch: async (parent, { id }) => {
+      const match = await Match.findById(id);
+      if (!match) {
+        throw new Error(`No match with ID: ${id}`);
+      }
+      await match.remove();
+      return match;
     },
   },
 };
