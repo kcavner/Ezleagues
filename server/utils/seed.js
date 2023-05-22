@@ -69,8 +69,8 @@ connection.once('open', async ()=> {
         try{
             for(const sport of sports){
                 const newSport = new Sport({
-                    sportName : sport.sportName,
-                    sportDescription : sport.sportDescription,
+                    name : sport.name,
+                    description : sport.description,
                     startDate : sport.startDate,
                     registeredTeams : sport.registeredTeams,
                     matchesPlayed : sport.matchesPlayed
@@ -89,11 +89,11 @@ connection.once('open', async ()=> {
         try{
             for(const team of teams){
                 const newTeam = new Team({
-                    teamName : team.teamName,
-                    sportAssociation : team.sportAssociation,
+                    name : team.name,
+                    association : team.association,
                     stats : team.stats,
                     scheduleOfGames : team.scheduleOfGames,
-                    teamColors : team.teamColors,
+                    teamColor : team.teamColor,
                     roster : team.roster
                 });
                 await newTeam.save();
