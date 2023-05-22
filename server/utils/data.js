@@ -10,7 +10,7 @@ const users = [
         "password": "carrots",
         "birthDate": "1990-01-01",
         "organizationName": "Kansas City Recreation League",
-        "teams":[""],
+        "teams": "646ad02f80f96f3ea9dba011",
         "isCommissioner": false,
         "isPlayer": true,
         "isCaptain": true,
@@ -24,7 +24,7 @@ const users = [
         "password": "pondlife",
         "birthDate": "1990-01-01",
         "organizationName": "Kansas City Recreation League",
-        "teams":[""],
+        "teams": "646ad02f80f96f3ea9dba011",
         "isCommissioner": false,
         "isPlayer": true,
         "isCaptain": false,
@@ -38,7 +38,7 @@ const users = [
         "password": "shotty",
         "birthDate": "1990-01-01",
         "organizationName": "Kansas City Recreation League",
-        "teams":[""],
+        "teams": "646ad02f80f96f3ea9dba011",
         "isCommissioner": true,
         "isPlayer": false,
         "isCaptain": false,
@@ -59,7 +59,7 @@ const sports = [
         "sportName":"Basketball",
         "sportDescription":"5v5 Indoor Co-Ed League",
         "startDate":new Date('2023-05-30'),
-        "registeredTeams":null,
+        "registeredTeams" : "646ad02f80f96f3ea9dba011",
         "matchesPlayed":null
     },
     {
@@ -79,7 +79,15 @@ const teams = [ //teamName, sportAssociation, stats, schedule of games, teamColo
         "stats":"",
         "scheduleOfGames":[new Date('2023-06-01'), new Date('2023-06-05')],
         "teamColors": ['Red', 'White'],
-        "roster": null
+        "roster": ['646ad244e99bdd9498bd2ff0', '646ad244e99bdd9498bd2ffc', '646ad244e99bdd9498bd2ffe']
+    },
+    {
+        "teamName":"Nuggets",
+        "sportAssociation": '64698fce58b163fd8ddb8900',
+        "stats":"",
+        "scheduleOfGames":[new Date('2023-06-01'), new Date('2023-06-05')],
+        "teamColors": ['Blue', 'Yellow'],
+        "roster": ['646ad244e99bdd9498bd2ff0', '646ad244e99bdd9498bd2ffc', '646ad244e99bdd9498bd2ffe']
     }
 ]
 // matches
@@ -87,7 +95,7 @@ const matches = [
     {
         "date":new Date('2023-06-01'),
         "location": "Blackhoof Park",
-        "teamsPlaying":["teamA", "teamB"],
+        "teamsPlaying":['646ad2fe8145805eb85eaea8', '646ad3d869e4957012411758'], //need another basketball team
         "score":"2-0"
     }
 ]
