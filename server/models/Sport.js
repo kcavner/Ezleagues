@@ -4,14 +4,14 @@ const { Schema, model } = require('mongoose');
 const sportSchema = new Schema(
     {
         // sport name
-        sportName: {
+        name: {
             type: String,
             required: true,
             unique: true,
             trim: true
         },
         // sport description
-        sportDescription:{
+        description:{
             type: String,
             maxlength: 1000
         },

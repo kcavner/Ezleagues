@@ -5,12 +5,12 @@ const Sport = require('./Sport');
 const teamSchema = new Schema(
 {
         // team name
-    teamName:{
+    name:{
         type:String,
         required: true,
         trim: true
     },
-    sportAssociation:{
+    association:{
         type: Schema.Types.ObjectId,
         ref: 'Sport',
         required: true,
@@ -22,7 +22,7 @@ const teamSchema = new Schema(
     scheduleOfGames:{
         type:[Date],
     },
-    teamColors:{
+    teamColor:{
         type:[String],
         required:true
     },
