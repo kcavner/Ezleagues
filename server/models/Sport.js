@@ -23,8 +23,9 @@ const sportSchema = new Schema(
         },
         // list of teams registered
         // 5.20.23 - we need to pull the list of teams for the sport.
+        // 5.21.23 - fixed so that this now holds an array of team ids.
         registeredTeams: {
-            type: Schema.Types.ObjectId,
+            type: [Schema.Types.ObjectId],
             ref: 'Team'
         },
 

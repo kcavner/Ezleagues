@@ -13,7 +13,10 @@ const matchSchema = new Schema({
     required: true,
   },
   // teamsPlaying needs to be reworked so it references the two teams playing each other
-  teamsPlaying: [String],
+  teamsPlaying: {
+    type:  [Schema.Types.ObjectId],
+    ref: 'Team'
+  },
   // this needs to be reworked to a string that the League Worker will enter. We can then just call the string later when needed.
   score: {
     type: String,

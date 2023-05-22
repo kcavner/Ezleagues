@@ -27,8 +27,9 @@ const teamSchema = new Schema(
         required:true
     },
     // 5.20.23 commented out required while trouble shooting seeding.
+    // 5.21.23 turned this into an array of user IDs.
     roster:{
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref:"User",
         // required:true
     }
