@@ -36,7 +36,7 @@ const resolvers = {
     //   const token = signToken(jwtUser);
     //   return { token, jwtUser };
     // },
-    login: async (parent, { email, password }) => {
+    login: async (parent, { email, password}) => {
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
@@ -49,6 +49,18 @@ const resolvers = {
       return { token, user };
     },
     // updateUser we need to choose what is available to be updated
+    updateUser: async (parent, { email, password, organizationName, team}) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new Error('No user found with this email address');
+      }
+      user.email = email;
+      user.password = password;
+      user.organizationName = organizationName;
+      user.team = team;
+      await user.save();
+      return user;
+    },
     deleteUser: async (parent, { id }) => {
       const user = await User.findById(id);
       if (!user) {
@@ -99,8 +111,8 @@ const resolvers = {
       await sport.remove();
       return sport;
     },
-    createTeam: async (parent, { name, stats, scheduleOfGames, teamColor }) => {
-      return Team.create({ name, stats, scheduleOfGames, teamColor });
+    createTeam: async (parent, { name, association, teamColor }) => {
+      return Team.create({ name, association, teamColor });
     },
     updateTeam: async (parent, { id, name }) => {
       const team = await Team.findById(id);

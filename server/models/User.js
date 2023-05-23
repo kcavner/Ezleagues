@@ -63,7 +63,7 @@ const userSchema = new Schema(
         // teams that the user belongs to
         // 5.20.23 reference to the team model?
         // 5.21.23 changed to reference the Team model. We now pass a team id to the seed.
-        teams: {
+        team: {
             type: Schema.Types.ObjectId,
             ref: 'Team'
         },

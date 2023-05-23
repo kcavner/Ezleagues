@@ -6,7 +6,7 @@ import Nav from './pages/Nav';
 // we might need to use react-router-dom for internal hyperlinks?
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 // Auth middleware that attaches JWT to every request as an Auth header
