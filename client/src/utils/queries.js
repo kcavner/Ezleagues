@@ -64,3 +64,11 @@ query match {
   }
 }
 `;
+
+export const QUERY_ROSTER = gql`
+query team {
+    team {
+        roster
+    }
+}
+`;
