@@ -30,7 +30,7 @@ connection.once('open', async ()=> {
                     password: user.password,
                     birthDate: new Date(user.birthDate),
                     organizationName: user.organizationName,
-                    teams: user.teams,
+                    team: user.team,
                     isCommissioner: user.isCommissioner,
                     isPlayer: user.isPlayer,
                     isCaptain: user.isCaptain,

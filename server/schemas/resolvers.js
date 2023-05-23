@@ -99,8 +99,8 @@ const resolvers = {
       await sport.remove();
       return sport;
     },
-    createTeam: async (parent, { name, stats, scheduleOfGames, teamColor }) => {
-      return Team.create({ name, stats, scheduleOfGames, teamColor });
+    createTeam: async (parent, { name, association, teamColor }) => {
+      return Team.create({ name, association, teamColor });
     },
     updateTeam: async (parent, { id, name }) => {
       const team = await Team.findById(id);
