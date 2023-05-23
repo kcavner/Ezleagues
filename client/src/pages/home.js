@@ -13,12 +13,13 @@ function Navbar() {
   <header>
     <div className='name'style={{ cursor: "pointer" }} onClick={() => handlePageChange('login')}>EZLeagues</div>
       <nav>
-       
+       {/* a tag for page rendering, change the input for handlePageChange as needed */}
             <a className='navLink' href="#" onClick={() => handlePageChange('login')}>
               login
             </a>
       </nav>
   </header>
+  
     {currentPage === 'login' && <Login />}
    </div>
     );
