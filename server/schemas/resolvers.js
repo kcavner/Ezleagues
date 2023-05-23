@@ -19,14 +19,9 @@ const resolvers = {
     user: async () => {
       return User.find();
     },
-
   },
 
   Mutation: {
-
-     
- 
-
     createUser: async (_, args) => {
       // Extract the input arguments
       const {
@@ -59,14 +54,10 @@ const resolvers = {
         isLeagueWorker
       });
 
-      // Return the token and user data
-      return {
-        token: signToken(newUser), // Generate a token for authentication
-        user: {
-          firstName: newUser.firstName,
-          email: newUser.email
-        }
-      };
+    createUser: async (parent, { firstName, lastName, userName, email, password, birthDate, organizationName }) => {
+      const user = await User.create({ firstName, lastName, userName, email, password, birthDate, organizationName });
+      const token = signToken(user);
+      return { token, user };
     },
 
     login: async (parent, { email, password}) => {

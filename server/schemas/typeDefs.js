@@ -85,13 +85,13 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         updateUser(
             _id: ID!
-            firstName: String!
-            lastName: String!
+            firstName: String
+            lastName: String
             userName: String!
             email: String!
             password: String!
-            birthDate: Date!
-            organizationName: String!
+            birthDate: Date
+            organizationName: String
             team: [String]
             isCommissioner: Boolean
             isCaptain: Boolean
