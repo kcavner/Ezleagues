@@ -23,10 +23,10 @@ const typeDefs = gql`
     type Team {
         _id: ID!
         name: String!
-        sportAssociation: String!
+        association: String!
         stats: Int!
         scheduleOfGames: [Date]
-        teamColors: [String]
+        teamColor: [String]
         roster: [String]
     }
 
@@ -47,7 +47,7 @@ const typeDefs = gql`
         password: String!
         birthDate: Date!
         organizationName: String!
-        teams: [String]
+        team: [String]
         isCommissioner: Boolean
         isCaptain: Boolean
         isPlayer: Boolean
@@ -125,17 +125,17 @@ const typeDefs = gql`
         deleteSport(_id: ID!): Sport
         createTeam(
             name: String!
-            sportAssociation: String!
+            association: String!
             scheduleOfGames: [Date]
-            teamColors: [String]
+            teamColor: [String]
         ): Team
         updateTeam(
             _id: ID!
             name: String!
-            sportAssociation: String!
+            association: String!
             stats: Int!
             scheduleOfGames: [Date]
-            teamColors: [String]
+            teamColor: [String]
             roster: [String]
         ): Team
         deleteTeam(_id: ID!): Team
