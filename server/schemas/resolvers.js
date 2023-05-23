@@ -19,7 +19,6 @@ const resolvers = {
     user: async () => {
       return User.find();
     },
-
   },
 
   Mutation: {
