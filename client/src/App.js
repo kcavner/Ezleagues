@@ -1,10 +1,9 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Container from './pages/Container';
+import Nav from './pages/Nav';
 // we might need to use react-router-dom for internal hyperlinks?
-
-import Home from './pages/home';
-
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -26,11 +25,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
-
-        <div>
-          <Home />
-        </div>
-
+        
+        <Container />  
       </div>
     </ApolloProvider>
   );
