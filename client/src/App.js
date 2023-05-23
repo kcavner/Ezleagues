@@ -7,7 +7,7 @@ import Home from './pages/home';
 
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 // Auth middleware that attaches JWT to every request as an Auth header
