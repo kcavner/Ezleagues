@@ -76,7 +76,7 @@ const typeDefs = gql`
             password: String!
             birthDate: Date!
             organizationName: String!
-            teams: [String]
+            team: [String]
             isCommissioner: Boolean
             isCaptain: Boolean
             isPlayer: Boolean
@@ -92,7 +92,7 @@ const typeDefs = gql`
             password: String!
             birthDate: Date!
             organizationName: String!
-            teams: [String]
+            team: [String]
             isCommissioner: Boolean
             isCaptain: Boolean
             isPlayer: Boolean

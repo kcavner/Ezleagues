@@ -36,7 +36,7 @@ const resolvers = {
     //   const token = signToken(jwtUser);
     //   return { token, jwtUser };
     // },
-    login: async (parent, { email, password }) => {
+    login: async (parent, { email, password}) => {
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
@@ -49,6 +49,18 @@ const resolvers = {
       return { token, user };
     },
     // updateUser we need to choose what is available to be updated
+    updateUser: async (parent, { email, password, organizationName, team}) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new Error('No user found with this email address');
+      }
+      user.email = email;
+      user.password = password;
+      user.organizationName = organizationName;
+      user.team = team;
+      await user.save();
+      return user;
+    },
     deleteUser: async (parent, { id }) => {
       const user = await User.findById(id);
       if (!user) {
