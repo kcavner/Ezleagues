@@ -1,7 +1,7 @@
 const { Match, Organization, Sport, Team, User } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
-
+const Auth = require('../utils/auth')
 const resolvers = {
   Query: {
     organization: async () => {
@@ -22,19 +22,48 @@ const resolvers = {
   },
 
   Mutation: {
+    createUser: async (_, args) => {
+      // Extract the input arguments
+      const {
+        firstName,
+        lastName,
+        userName,
+        email,
+        password,
+        birthDate,
+        organizationName,
+        isCommissioner,
+        isCaptain,
+        isPlayer,
+        isLeagueWorker
+      } = args;
 
-    createUser: async (parent, { firstName, lastName, userName, email, password, birthDate, organizationName }) => {
-      const user = await User.create({ firstName, lastName, userName, email, password, birthDate, organizationName });
-      const token = signToken(user);
-      return { token, user };
+      // Implement the logic to create a new user
+      // Example: Assuming you have a User model and a create method
+      const newUser = await User.create({
+        firstName,
+        lastName,
+        userName,
+        email,
+        password,
+        birthDate,
+        organizationName,
+        isCommissioner,
+        isCaptain,
+        isPlayer,
+        isLeagueWorker
+      });
+
+      // Return the token and user data
+      return {
+        token: signToken(newUser), // Generate a token for authentication
+        user: {
+          firstName: newUser.firstName,
+          email: newUser.email
+        }
+      };
     },
-    // not sure how the jwt will work with this many parameters passed to user because jwt only uses name, email, password to sign a token. below is a potential work around.
-    // createUser: async (parent, { firstName, lastName, userName, email, password, birthDate, organizationName }) => {
-    //   const jwtUser = await User.create({ userName, email, password });
-    //   const user = await User.create({ firstName, lastName, userName, email, password, birthDate, organizationName });
-    //   const token = signToken(jwtUser);
-    //   return { token, jwtUser };
-    // },
+
     login: async (parent, { email, password}) => {
       const user = await User.findOne({ email });
       if (!user) {
@@ -151,6 +180,6 @@ const resolvers = {
       return match;
     },
   },
-};
+}
 
 module.exports = resolvers;

@@ -5,8 +5,8 @@ import Auth from '../utils/auth';
 
 const Login = () =>{
 
-    const [email, setEmail] = useState({ email: '' });
-    const [password, setPassword] = useState({ password: '' });
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     // says data is unused, does that mean that when it is used on line 27 and 31 that it isnt using the login mutation?
     const [login, { error, data }] = useMutation(LOGIN_USER);
 

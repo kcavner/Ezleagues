@@ -13,21 +13,12 @@ export const LOGIN_USER = gql`
 `;
 // building these in apollo sandbox then coping over for simplicity
 export const CREATE_USER = gql`
-mutation CreateUser($firstName: String!, $lastName: String!, $userName: String!, $email: String!, $password: String!, $birthDate: Date!, $organizationName: String!) {
-  createUser(firstName: $firstName, lastName: $lastName, userName: $userName, email: $email, password: $password, birthDate: $birthDate, organizationName: $organizationName) {
+mutation createUser($firstName: String!, $lastName: String!, $userName: String!, $email: String!, $password: String!, $birthDate: Date!, $organizationName: String!, $isCommissioner: Boolean, $isCaptain: Boolean, $isPlayer: Boolean, $isLeagueWorker: Boolean) {
+  createUser(firstName: $firstName, lastName: $lastName, userName: $userName, email: $email, password: $password, birthDate: $birthDate, organizationName: $organizationName, isCommissioner: $isCommissioner, isCaptain: $isCaptain, isPlayer: $isPlayer, isLeagueWorker: $isLeagueWorker) {
+    token
     user {
-      _id
-      userName
       firstName
-      lastName
-      organizationName
-      team
       email
-      birthDate
-      isCaptain
-      isCommissioner
-      isLeagueWorker
-      isPlayer
     }
   }
 }

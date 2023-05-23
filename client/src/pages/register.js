@@ -1,58 +1,103 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { CREATE_USER } from '../utils/mutations';
 
-const Login = () =>{
+const CreateUserForm = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [birthDate, setBirthDate] = useState('');
+  const [organizationName, setOrganizationName] = useState('');
+  const [isCommissioner, setIsCommissioner] = useState(false);
+  const [isCaptain, setIsCaptain] = useState(false);
+  const [isPlayer, setIsPlayer] = useState(false);
+  const [isLeagueWorker, setIsLeagueWorker] = useState(false);
 
-    const [email, setEmail] = useState({ email: '' });
-    const [password, setPassword] = useState({ password: '' });
-    // says data is unused, does that mean that when it is used on line 27 and 31 that it isnt using the login mutation?
-    const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [createUser, { loading, error }] = useMutation(CREATE_USER);
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const { data } = await createUser({
+        variables: {
+          firstName,
+          lastName,
+          userName,
+          email,
+          password,
+          birthDate,
+          organizationName,
+          isCommissioner,
+          isCaptain,
+          isPlayer,
+          isLeagueWorker,
+        },
+      });
+  
+      // Handle successful registration
+      console.log(data);
+    } catch (error) {
+      // Handle error
+      console.log(error);
+    }
+  }
+  
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        First Name:
+        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+      </label>
+      <label>
+        Last Name:
+        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+      </label>
+      <label>
+        User Name:
+        <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required />
+      </label>
+      <label>
+        Email:
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      </label>
+      <label>
+        Password:
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      </label>
+      <label>
+        Birth Date:
+        <input type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} required />
+      </label>
+      <label>
+        Organization Name:
+        <input type="text" value={organizationName} onChange={(e) => setOrganizationName(e.target.value)} required />
+      </label>
+      <label>
+        Is Commissioner:
+        <input type="checkbox" checked={isCommissioner} onChange={(e) => setIsCommissioner(e.target.checked)} />
+      </label>
+      <label>
+        Is Captain:
+        <input type="checkbox" checked={isCaptain} onChange={(e) => setIsCaptain(e.target.checked)} />
+      </label>
+      <label>
+        Is Player:
+        <input type="checkbox" checked={isPlayer} onChange={(e) => setIsPlayer(e.target.checked)} />
+      </label>
+      <label>
+        Is League Worker:
+        <input type="checkbox" checked={isLeagueWorker} onChange={(e) => setIsLeagueWorker(e.target.checked)} />
+      </label>
+      <button type="submit" disabled={loading}>
+        {loading ? 'Loading...' : 'Create User'}
+      </button>
+      {error && <p>{error.message}</p>}
+    </form>
+  );
+};
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        // Perform login logic here (e.g., send request to server)
-        console.log('Email:', email);
-        console.log('Password:', password);
-        try {
-          const { data } = await Register({
-            variables: { email, password },
-          });
-
-          Auth.login(data.login.token);
-        } catch (err) {
-          console.log(err);
-        }
-        // Reset form fields
-        setEmail('');
-        setPassword('');
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-          <h2>Register</h2>
-          <div>
-            <label>Email:</label>
-            <input type="email" value={email} onChange={handleEmailChange} required />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input type="password" value={password} onChange={handlePasswordChange} required />
-          </div>
-          <div>
-            <button type="submit">Login</button>
-          </div>
-        </form>
-      );
-}
-
-export default Login;
+export default CreateUserForm;
