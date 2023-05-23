@@ -14,11 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.0.1",
-    "react-icons": "^4.8.0"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.3.2"
+    "concurrently": "^8.0.1"
   },
   "proxy":"http://localhost:3001"
 }
