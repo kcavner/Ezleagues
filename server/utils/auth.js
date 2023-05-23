@@ -4,8 +4,8 @@ const secret = 'biiiiiiiggggggsecrettt';
 const expiration = '3h';
 
 module.exports = {
-    signToken: function ({ email, name, _id }) {
-        const payload = { email, name, _id };
+    signToken: function ({ email, userName, password }) {
+        const payload = { email, userName, password };
         return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     },
 };
