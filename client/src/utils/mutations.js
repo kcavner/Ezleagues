@@ -22,6 +22,8 @@ mutation createUser($firstName: String!, $lastName: String!, $userName: String!,
     }
   }
 }
+
+
 `;
 
 export const CREATE_ORG = gql`
