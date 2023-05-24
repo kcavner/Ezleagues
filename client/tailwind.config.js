@@ -23,8 +23,9 @@ module.exports = {
       spacing:{
         88: '22rem',
       },
-      // fontFamily
-      
+      fontFamily:{
+        custom:['Righteous', 'sans-serif'],
+      },
     },
   },
   plugins: [],
