@@ -48,7 +48,7 @@
   width: 100%;
   max-height: 0;
   overflow: hidden;
-  background-color: #fff;
+  background-color: dimgray;
   transition: max-height 0.3s ease-out;
 }
 
