@@ -25,6 +25,6 @@ Please login or sign-up to join teams and leagues [here](https://ezleagues.herok
 
 ## Contributors
 For any questions please reach out to any of us on GitHub
-[kcavner](https://github.com/kcavner)
-[Scorch87](https://github.com/Scorch87)
-[Zencoh](https://github.com/zencoh)
+* [kcavner](https://github.com/kcavner)
+* [Scorch87](https://github.com/Scorch87)
+* [Zencoh](https://github.com/zencoh)
