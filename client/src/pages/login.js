@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import Header from './Container'
+import Home from './home'
 
 const Login = () =>{
 
@@ -38,6 +38,11 @@ const Login = () =>{
         setPassword('');
     };
 
+    if(Auth.loggedIn() === true){
+      console.log("user is logged in")
+      return <Home />;
+    }
+    else{
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           
@@ -78,6 +83,7 @@ const Login = () =>{
           
         </div>
       );
+}
 }
 
 export default Login;
