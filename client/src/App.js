@@ -1,9 +1,11 @@
+import 'tailwindcss/tailwind.css';
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 // we might need to use react-router-dom for internal hyperlinks?
 
 import Home from './pages/home';
+import Container from './pages/Container';
 
 
 const httpLink = createHttpLink({
@@ -28,7 +30,8 @@ function App() {
       <div>
 
         <div>
-          <Home />
+          {/* <Home /> this is in case we want to revert to home being the traffic control*/}
+          <Container />
         </div>
 
       </div>
