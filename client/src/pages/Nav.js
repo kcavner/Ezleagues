@@ -15,12 +15,12 @@ function Nav({ currentPage, handlePageChange }) {
         <nav className="dropdown">
             <ul>
             <li>
-                <a className='navLink' href="#" onClick={() => handlePageChange('login')}>
+                <a className='navLink' href="#" onClick={() => handlePageChange('Login')}>
                 login
                 </a>
             </li>
             <li>
-                <a className='navLink' href="#" onClick={() => handlePageChange('register')}>
+                <a className='navLink' href="#" onClick={() => handlePageChange('Register')}>
                 Register
                 </a>
             </li>

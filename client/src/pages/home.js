@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-
+import Auth from '../utils/auth'
 
 function Home() {
+  
+if (Auth.loggedIn() === true){
+  const user = Auth.getUser();
+  console.log(user)
+  if (user.isCommissioner === true) {
+    // Render content for commissioner
+    return <div className='home-dash'>
 
-    return (
-  <div className='home-dash'>
-
+      </div>;
+  } else if (user.isPlayer === true) {
+    // Render content for player
+    return <div className='home-dash'>
 <button className='home-button' onclick="fetchData('organization')">Get Organizations</button>
 
 <button className='home-button' onclick="fetchData('sport')">Get Sports</button>
@@ -15,40 +23,25 @@ function Home() {
 <button className='home-button' onclick="fetchData('match')">Get Matches</button>
 
 <button className='home-button' onclick="fetchData('user')">Get Users</button>
+      </div>;
+  } else if (user.isCaptain === true) {
+    // Render content for captain
+    return <div className='home-dash'>
 
-<button className='home-button' onclick="createUser()">Create User</button>
+      </div>;
+  } else if (user.isLeagueWorker === true) {
+    // Render content for league worker
+    return <div className='home-dash'>
 
-<button className='home-button' onclick="login()">Login</button>
+      </div>;
+  }
+}else{
+    return (<div>
 
-<button className='home-button' onclick="updateUser()">Update User</button>
-
-<button className='home-button' onclick="deleteUser()">Delete User</button>
-
-<button className='home-button' onclick="createOrg()">Create Organization</button>
-
-<button className='home-button' onclick="updateOrg()">Update Organization</button>
-
-<button className='home-button' onclick="deleteOrg()">Delete Organization</button>
-
-<button className='home-button' onclick="createSport()">Create Sport</button>
-
-<button className='home-button' onclick="updateSport()">Update Sport</button>
-
-<button className='home-button' onclick="deleteSport()">Delete Sport</button>
-
-<button className='home-button' onclick="createTeam()">Create Team</button>
-
-<button className='home-button' onclick="updateTeam()">Update Team</button>
-
-<button className='home-button' onclick="deleteTeam()">Delete Team</button>
-
-<button className='home-button' onclick="createMatch()">Create Match</button>
-
-<button className='home-button' onclick="updateMatch()">Update Match</button>
-
-<button className='home-button' onclick="deleteMatch()">Delete Match</button>
-   </div>
+    </div>
+      
   );
+}
 }
 
   export default Home
