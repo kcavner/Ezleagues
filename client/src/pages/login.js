@@ -8,7 +8,10 @@ const Login = () =>{
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // says data is unused, does that mean that when it is used on line 27 and 31 that it isnt using the login mutation?
+    // const [isCommissioner, setIsCommissioner] = useState('');
+    // const [isCaptain, setIsCaptain] = useState('');
+    // const [isPlayer, setIsPlayer] = useState('');
+    // const [isLeagueWorker, setIsLeagueWorker] = useState('');
     const [login, { error, data }] = useMutation(LOGIN_USER);
 
     const handleEmailChange = (e) => {
