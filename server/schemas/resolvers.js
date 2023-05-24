@@ -22,6 +22,7 @@ const resolvers = {
   },
 
   Mutation: {
+
     createUser: async (_, args) => {
       // Extract the input arguments
       const {
@@ -54,10 +55,14 @@ const resolvers = {
         isLeagueWorker
       });
 
-    createUser: async (parent, { firstName, lastName, userName, email, password, birthDate, organizationName }) => {
-      const user = await User.create({ firstName, lastName, userName, email, password, birthDate, organizationName });
-      const token = signToken(user);
-      return { token, user };
+      // Return the token and user data
+      return {
+        token: signToken(newUser), // Generate a token for authentication
+        user: {
+          firstName: newUser.firstName,
+          email: newUser.email
+        }
+      };
     },
 
     login: async (parent, { email, password}) => {
