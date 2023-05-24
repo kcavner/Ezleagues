@@ -38,20 +38,24 @@ const Login = () =>{
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-          <h2>Login</h2>
+        <form className="loginform" onSubmit={handleSubmit}>
+          <h2 className="loginH2">Login</h2>
           <div>
-            <label>Email:</label>
-            <input type="email" value={email} onChange={handleEmailChange} required />
+            <label>Email: <input type="email" value={email} onChange={handleEmailChange} required />
+          </label>
+           
           </div>
           <div>
-            <label>Password:</label>
-            <input type="password" value={password} onChange={handlePasswordChange} required />
+            <label>Password:<input type="password" value={password} onChange={handlePasswordChange} required />
+          </label>
+            
           </div>
           <div>
             <button type="submit">Login</button>
           </div>
+          {error && <p>{error.message}</p>}
         </form>
+          
       );
 }
 

@@ -19,6 +19,13 @@ class Auth {
         return false;
     }
 
+    // decode(){
+    //     const token = localStorage.getItem('token');
+    //     const decodedToken = decode(token);
+    //     return decodedToken
+
+    // }
+
     getToken() {
         return localStorage.getItem('id_token');
     }
