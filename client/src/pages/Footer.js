@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer>
+        <footer className="leagues-footer">
             <p>Created by sports enthusiasts. EZleagues @ 2023. All rights reserved</p>
         </footer>
     );
