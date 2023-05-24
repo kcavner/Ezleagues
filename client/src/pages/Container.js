@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Home from "./home";
 import Login from "./login";
 import CreateUserForm from "./register";
+import Footer from "./Footer";
 
 export default function Container() {
     const [currentPage, setCurrentPage] = useState('Home');
@@ -25,7 +26,7 @@ export default function Container() {
         <div className="min-h-screen flex flex-col mt-16">
             <Nav currentPage={currentPage} handlePageChange={handlePageChange}/>
             {renderPage()}
-            {/* Footer component here. */}
+            {Footer()}
         </div>
     );
 
