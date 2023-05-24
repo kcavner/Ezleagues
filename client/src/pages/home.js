@@ -1,33 +1,47 @@
 import React, { useState } from 'react';
-import Login from "./login"
-import Register from "./register"
+import Auth from '../utils/auth'
 
-function Navbar() {
-    const [currentPage, setCurrentPage] = useState('login');
+function Home() {
   
-    const handlePageChange = (page) => {
-      setCurrentPage(page);
-    };
-  
-    return (
-  <div>
-  <header>
-    <div className='name'style={{ cursor: "pointer" }} onClick={() => handlePageChange('login')}>EZLeagues</div>
-      <nav>
-       {/* a tag for page rendering, change the input for handlePageChange as needed */}
-            <a className='navLink' href="#" onClick={() => handlePageChange('login')}>
-              login
-            </a>
-            <a className='navLink' href="#" onClick={() => handlePageChange('register')}>
-              Register
-            </a>
-      </nav>
-  </header>
-  
-    {currentPage === 'login' && <Login />}
-    {currentPage === 'register' && <Register />}
-   </div>
-    );
+if (Auth.loggedIn() === true){
+  const user = Auth.getUser();
+  console.log(user)
+  if (user.isCommissioner === true) {
+    // Render content for commissioner
+    return <div className='home-dash'>
+
+      </div>;
+  } else if (user.isPlayer === true) {
+    // Render content for player
+    return <div className='home-dash'>
+<button className='home-button' onclick="fetchData('organization')">Get Organizations</button>
+
+<button className='home-button' onclick="fetchData('sport')">Get Sports</button>
+
+<button className='home-button' onclick="fetchData('team')">Get Teams</button>
+
+<button className='home-button' onclick="fetchData('match')">Get Matches</button>
+
+<button className='home-button' onclick="fetchData('user')">Get Users</button>
+      </div>;
+  } else if (user.isCaptain === true) {
+    // Render content for captain
+    return <div className='home-dash'>
+
+      </div>;
+  } else if (user.isLeagueWorker === true) {
+    // Render content for league worker
+    return <div className='home-dash'>
+
+      </div>;
   }
+}else{
+    return (<div>
 
-  export default Navbar
+    </div>
+      
+  );
+}
+}
+
+  export default Home
