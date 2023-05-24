@@ -20,12 +20,14 @@ export default function Container() {
     };
 
     const handlePageChange = (page) => setCurrentPage(page);
-    
+
     return (
-        <div className="main-container flex flex-row min-w-screen mt-16 white">
+        <div className="min-h-screen flex flex-col mt-16">
             <Nav currentPage={currentPage} handlePageChange={handlePageChange}/>
             {renderPage()}
             {/* Footer component here. */}
         </div>
     );
+
+    
 }

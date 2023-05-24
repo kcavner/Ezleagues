@@ -29,7 +29,7 @@ function App() {
     <ApolloProvider client={client}>
       <div>
 
-        <div>
+        <div className="bg-yellow-500">
           {/* <Home /> this is in case we want to revert to home being the traffic control*/}
           <Container />
         </div>

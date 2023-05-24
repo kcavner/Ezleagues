@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import Header from './Container'
 
 const Login = () =>{
 
@@ -38,6 +39,8 @@ const Login = () =>{
     };
 
     return (
+        <div>
+        {/* <Header text = 'EZ Leagues'/> */}
         <form onSubmit={handleSubmit}>
           <h2>Login</h2>
           <div>
@@ -52,6 +55,7 @@ const Login = () =>{
             <button type="submit">Login</button>
           </div>
         </form>
+        </div>
       );
 }
 
