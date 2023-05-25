@@ -7,6 +7,7 @@ import { QUERY_TEAM } from '../utils/queries';
 export default function Teams() {
     const {loading, error, data} = useQuery(QUERY_TEAM);
     const teams = data?.team || [];
+    console.log(teams)
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;

@@ -88,7 +88,7 @@ const resolvers = {
         console.log(user)
         user.organizationName = organizationName;
         await user.save();
-        return user;
+        return user
       } catch (error) {
         console.log(error);
       }

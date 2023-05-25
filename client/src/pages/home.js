@@ -34,10 +34,13 @@ function Home() {
     return <Login/>
   }else{
 
+  const user = Auth.getUser()
 
 
 return <div className='home-dash-container'>
+  
     <div className='home-dash'>
+    <div className='welcome-name'>welcome, {user.data.userName}!</div>
 <button className='home-button' onClick={() => handlePageChange('Organization')}>Organizations</button>
 
 <button className='home-button' onClick={() => handlePageChange('Sports')}>Sports</button>

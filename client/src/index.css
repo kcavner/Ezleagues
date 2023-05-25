@@ -163,3 +163,6 @@ margin-inline: 50px;
   justify-content: center;
   margin-top: 20vh;
 }
+.welcome-name{
+  font-size: larger;
+}

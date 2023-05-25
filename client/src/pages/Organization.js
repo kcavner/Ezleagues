@@ -28,6 +28,7 @@ const Organization = () => {
             setFormState({ organizationName: updatedUser?.organizationName });
             alert('Organization successfully updated');
             console.log(user);
+            console.log('formstate',formState)
         } catch (error) {
             console.log(error);
         }
@@ -47,9 +48,9 @@ const Organization = () => {
                         {orgs.map((organization) => (
                             <div className='position relative w-80 h-100
                             flex border mb-2.5 p-2.5 border-solid border-[#ccc]' key={organization._id}>
-                                <h3 class="m-4">{organization?.name}</h3>
-                                <p class="m-4">{organization?.location}</p>
-                                <button class="m-4" onClick={() => handleFormSubmit(organization?.name)}>
+                                <h3>{organization?.name}</h3>
+                                <p>{organization?.location}</p>
+                                <button className='home-button' onClick={() => handleFormSubmit(organization?.name)}>
                                     JOIN
                                 </button>
                             </div>
