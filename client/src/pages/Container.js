@@ -5,7 +5,9 @@ import Login from "./login";
 import CreateUserForm from "./register";
 import Footer from "./Footer";
 import Organization from "./Organization";
+import Sports from "./Sports";
 import Auth from "../utils/auth"
+
 
 export default function Container() {
     const [currentPage, setCurrentPage] = useState('Login');
@@ -29,6 +31,9 @@ export default function Container() {
         }
         if (currentPage === 'Organization'){
             return <Organization />
+        }
+        if (currentPage === 'Sports'){
+            return <Sports />;
         }
     };
 
