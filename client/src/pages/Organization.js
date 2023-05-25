@@ -7,6 +7,17 @@ import { UPDATE_USER } from '../utils/mutations';
 const Organization = () => {
     const { loading, data } = useQuery(QUERY_ORG);
     const orgs = data?.organization || [];
+    const [updateUser] = useMutation(UPDATE_USER);
+    const [formState, setFormState] = useState({organizationName: ''})
+
+    const handleFormSubmit = async (organizationName) => {
+        const mutationResponse = await updateUser({
+          variables: {
+            // _id: id,
+            organizationName: organizationName
+          },
+        });
+      };
 
     return (
         <main>
@@ -23,6 +34,7 @@ const Organization = () => {
                             <div key={organization._id}>
                                 <h3>{organization.name}</h3>
                                 <p>{organization.location}</p>
+                                <button onClick={() => handleFormSubmit(organization.name)}>JOIN</button>
                             </div>
                         ))}
                     </div>

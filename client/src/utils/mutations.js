@@ -69,8 +69,8 @@ mutation createSport($name: String!, $description: String, $startDate: Date) {
 `;
 
 export const UPDATE_USER = gql`
-mutation UpdateUser($id: ID!, $userName: String!, $email: String!, $password: String!) {
-  updateUser(_id: $id, userName: $userName, email: $email, password: $password) {
+mutation UpdateUser($id: ID!, $userName: String!, $email: String!, $password: String!, $organizationName: String!) {
+  updateUser(_id: $id, userName: $userName, email: $email, password: $password, organizationName: $organizationName) {
     _id
     email
     organizationName
