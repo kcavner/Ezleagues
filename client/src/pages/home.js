@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import Auth from '../utils/auth'
-import { Routes, Route, useNavigate } from 'react-router-dom';
 import Organization from './Organization';
 
 function Home() {
-  // const navigate = useNavigate();
-  // const navigateToOrgs = () => {
-  //   navigate('/Organization');
-  // };
   const [currentPage, setCurrentPage] = useState('');
   const handlePageChange = (page) => setCurrentPage(page);
 if (Auth.loggedIn() === true){
