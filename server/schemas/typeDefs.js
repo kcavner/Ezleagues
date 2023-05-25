@@ -84,20 +84,9 @@ const typeDefs = gql`
         ): Auth
         login(email: String!, password: String!): Auth
         updateUser(
-            _id: ID!
-            firstName: String
-            lastName: String
-            userName: String!
-            email: String!
-            password: String!
-            birthDate: Date
-            organizationName: String
-            team: [String]
-            isCommissioner: Boolean
-            isCaptain: Boolean
-            isPlayer: Boolean
-            isLeagueWorker: Boolean
-        ): User
+    email:String!
+    organizationName: String
+  ): User
         deleteUser(_id: ID!): User
         createOrg(
             name: String!

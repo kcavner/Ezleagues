@@ -77,18 +77,21 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // updateUser we need to choose what is available to be updated
-    updateUser: async (parent, { email, password, organizationName, team}) => {
-      const user = await User.findOne({ email });
-      if (!user) {
-        throw new Error('No user found with this email address');
+
+    updateUser: async (_, { email, organizationName }) => {
+      try {
+        console.log("mutation met")
+        const user = await User.findOne({email});
+        if (!user) {
+          throw new Error('User not found');
+        }
+        console.log(user)
+        user.organizationName = organizationName;
+        await user.save();
+        return user;
+      } catch (error) {
+        console.log(error);
       }
-      user.email = email;
-      user.password = password;
-      user.organizationName = organizationName;
-      user.team = team;
-      await user.save();
-      return user;
     },
     deleteUser: async (parent, { id }) => {
       const user = await User.findById(id);
