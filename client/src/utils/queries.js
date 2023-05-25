@@ -31,6 +31,15 @@ query user {
 }
 `;
 
+export const QUERY_USERNAME = gql`
+query user {
+  user {
+    userName
+    organizationName
+  }
+}
+`
+
 export const QUERY_SPORT = gql`
 query sport {
   sport {

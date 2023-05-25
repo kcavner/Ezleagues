@@ -9,6 +9,7 @@ import Sports from "./Sports";
 import Auth from "../utils/auth"
 import Teams from "./Teams";
 import Match from "./Match";
+import User from "./User";
 
 
 export default function Container() {
@@ -42,6 +43,9 @@ export default function Container() {
         }
         if (currentPage === 'Match'){
             return <Match />
+        }
+        if (currentPage === 'User'){
+            return <User />
         }
 
     };

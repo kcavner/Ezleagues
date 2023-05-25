@@ -4,7 +4,8 @@ import Organization from './Organization';
 import Sports from "./Sports";
 import Teams from "./Teams";
 import Match from "./Match";
-import Login from './login'
+import Login from './login';
+import User from './User';
 
 function Home() {
   const [currentPage, setCurrentPage] = useState('');
@@ -25,6 +26,9 @@ function Home() {
   }
   if (currentPage === 'Login'){
       return <Login/>
+  }
+  if (currentPage === 'User'){
+    return <User />
   }
   }
 
@@ -49,7 +53,7 @@ return <div className='home-dash-container'>
 
 <button className='home-button' onClick={() => handlePageChange('Match')}>Get Matches</button>
 
-<button className='home-button'>Get Users</button>
+<button className='home-button' onClick={() => handlePageChange('User')}>Get Users</button>
 {renderPage()}
       </div>
     </div> 
