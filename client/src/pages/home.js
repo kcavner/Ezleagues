@@ -25,7 +25,7 @@ if (Auth.loggedIn() === true){
     <div className='home-dash'>
 <button className='home-button' onClick={() => handlePageChange('Organization')}>Organizations</button>
 
-<button className='home-button'>Sports</button>
+<button className='home-button'onClick={() => handlePageChange('Sports')}>Sports</button>
 
 <button className='home-button'>Get Teams</button>
 
