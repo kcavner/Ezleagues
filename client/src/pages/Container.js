@@ -7,10 +7,11 @@ import Footer from "./Footer";
 import Organization from "./Organization";
 import Sports from "./Sports";
 import Auth from "../utils/auth"
+import Teams from "./Teams";
 
 
 export default function Container() {
-    const [currentPage, setCurrentPage] = useState('Login');
+    const [currentPage, setCurrentPage] = useState('Home');
     const handlePageChange = (page) => setCurrentPage(page);
     
     useEffect(() => {
@@ -34,6 +35,9 @@ export default function Container() {
         }
         if (currentPage === 'Sports'){
             return <Sports />;
+        }
+        if (currentPage === 'Teams'){
+            return <Teams />;
         }
     };
 
