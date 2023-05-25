@@ -163,6 +163,11 @@ const organizations = [ //name, sports list, locations list
         "name":"Kansas City Recreation League",
         "sports":['646ad3ea392415cb577f993d', '646adbd050c735eabbe16783'],
         "location":["Blackhoof Park", "Gezer Park", "Leawood City Park"]
+    },
+    {
+        "name":"KU Intramurals",
+        "sports":null,
+        "location":["Compass Minerals Sporting Fields"]
     }
 ]
 // sports
