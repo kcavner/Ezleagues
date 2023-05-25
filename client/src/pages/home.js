@@ -4,35 +4,39 @@ import Organization from './Organization';
 import Sports from "./Sports";
 import Teams from "./Teams";
 import Match from "./Match";
+import Login from './login'
 
 function Home() {
   const [currentPage, setCurrentPage] = useState('');
   const handlePageChange = (page) => setCurrentPage(page);
-if (Auth.loggedIn() === true){
-  const user = Auth.getUser();
-  console.log(user)
-  if (user.isCommissioner === true) {
-    // Render content for commissioner
-    return <div className='home-dash'>
 
-      </div>;
-  } else if (user.data.isPlayer === true) {
-    // Render content for player
-    const renderPage = () => {
-      if (currentPage === 'Organization'){
-        return <Organization />
-    }
-    if (currentPage === 'Sports'){
-        return <Sports />;
-    }
-    if (currentPage === 'Teams'){
-        return <Teams />;
-    }
-    if (currentPage === 'Match'){
-        return <Match />
-    }
-    }
-    return   <div className='home-dash-container'>
+  const renderPage = () => {
+    if (currentPage === 'Organization'){
+      return <Organization />
+  }
+  if (currentPage === 'Sports'){
+      return <Sports />;
+  }
+  if (currentPage === 'Teams'){
+      return <Teams />;
+  }
+  if (currentPage === 'Match'){
+      return <Match />
+  }
+  if (currentPage === 'Login'){
+      return <Login/>
+  }
+  }
+
+
+  if (Auth.loggedIn() === false){
+    alert('please log in')
+    return <Login/>
+  }else{
+
+
+
+return <div className='home-dash-container'>
     <div className='home-dash'>
 <button className='home-button' onClick={() => handlePageChange('Organization')}>Organizations</button>
 
@@ -45,24 +49,7 @@ if (Auth.loggedIn() === true){
 <button className='home-button'>Get Users</button>
 {renderPage()}
       </div>
-    </div>
-  } else if (user.isCaptain === true) {
-    // Render content for captain
-    return <div className='home-dash'>
-
-      </div>;
-  } else if (user.isLeagueWorker === true) {
-    // Render content for league worker
-    return <div className='home-dash'>
-
-      </div>;
-  }
-}else{
-    return (<div>
-
-    </div>
-      
-  );
+    </div> 
 }
 }
 
