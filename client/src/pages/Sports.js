@@ -1,14 +1,26 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_SPORT } from '../utils/queries';
+
+
 
 export default function Sports() {
+    const {loading, error, data} = useQuery(QUERY_SPORT);
+    const sports = data?.sport || [];
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+
     return (
         <div className="flex flex-wrap justify-center align-center p-10">
-            {/* would need to query sports and display as many BoxComponents as we have sports. */}
+            {sports.map(sport => (
             <BoxComponent
-                title="Basketball"
-                content="5v5 Indoor Co-Ed League"
-                startDate="2023-05-30"
+                key={sport.name}
+                title={sport.name}
+                content={sport.description}
+                startDate={sport.startDate}
             />
+            ))}
         </div>
     )
 }
