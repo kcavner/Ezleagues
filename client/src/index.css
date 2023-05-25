@@ -117,7 +117,11 @@ width:200px;
   background-color:rgba(88, 233, 185, 0.63);
 }
 .home-dash{
-
+border-width: 2px;
+border-color:#fff;
+border-radius: 6px;
+padding: 50px;
+width: max-content;
 }
 .leagues-footer {
   position: fixed;
@@ -147,4 +151,9 @@ margin-inline: 50px;
   display: flex;
   justify-content: center;
 
+}
+.logout-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
 }

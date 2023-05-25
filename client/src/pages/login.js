@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import {handlePageChange} from './Container'
 import Home from './home'
 
 const Login = () =>{
-
+  
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     // const [isCommissioner, setIsCommissioner] = useState('');
@@ -33,17 +34,22 @@ const Login = () =>{
           });
 
           Auth.login(data.login.token);
+          
         } catch (err) {
           console.log(err);
         }
         // Reset form fields
         setEmail('');
         setPassword('');
+
+        
     };
 
     if(Auth.loggedIn() === true){
       console.log("user is logged in")
-      return <Home />;
+      return<div className='logout-container'>
+       <button className='home-button' onClick={() => Auth.logout()}>Logout</button>
+       </div>
     }
     else{
     return (
