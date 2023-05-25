@@ -29,7 +29,7 @@ const BoxComponent = ({ name, roster }) => {
         <div className="position relative w-80 h-100
         flex border mb-2.5 p-2.5 border-solid border-[#ccc]">
           <span></span>
-          <div className="content">
+          <div className="content m-4">
             {/* sport name */}
             <h2>Team Name:{name}</h2> 
             {/* sport desc */}
