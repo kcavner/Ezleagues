@@ -35,7 +35,7 @@ const typeDefs = gql`
         date: Date!
         location: String!
         teamsPlaying: [String]
-        score: Int!
+        score: String!
     }
 
     type User {
