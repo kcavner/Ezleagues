@@ -12,7 +12,7 @@ import Match from "./Match";
 
 
 export default function Container() {
-    const [currentPage, setCurrentPage] = useState('Login');
+    const [currentPage, setCurrentPage] = useState('Home');
     const handlePageChange = (page) => setCurrentPage(page);
     
     useEffect(() => {

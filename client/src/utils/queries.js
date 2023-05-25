@@ -51,7 +51,11 @@ query team {
     name
     association
     _id
-    roster
+    roster{
+      _id
+      firstName
+      lastName
+    }
   }
 }
 `;

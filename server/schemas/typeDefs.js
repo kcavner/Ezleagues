@@ -27,7 +27,7 @@ const typeDefs = gql`
         stats: Int!
         scheduleOfGames: [Date]
         teamColor: [String]
-        roster: [String]
+        roster: [User]
     }
 
     type Match {
