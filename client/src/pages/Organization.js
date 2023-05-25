@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ORG } from '../utils/queries';
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Organization = () => {
     const { loading, data } = useQuery(QUERY_ORG);
@@ -10,10 +11,14 @@ const Organization = () => {
     const [updateUser] = useMutation(UPDATE_USER);
     const [formState, setFormState] = useState({organizationName: ''})
 
+    const user = Auth.getUser();
+    console.log(user);
+    const userId = user ? user._id : '';
+
     const handleFormSubmit = async (organizationName) => {
         const mutationResponse = await updateUser({
           variables: {
-            // _id: id,
+            userId: userId,
             organizationName: organizationName
           },
         });
