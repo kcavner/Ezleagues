@@ -4,6 +4,7 @@ import Home from "./home";
 import Login from "./login";
 import CreateUserForm from "./register";
 import Footer from "./Footer";
+import Sports from "./Sports";
 
 export default function Container() {
     const [currentPage, setCurrentPage] = useState('Home');
@@ -17,6 +18,9 @@ export default function Container() {
         }
         if (currentPage === 'Register'){
             return <CreateUserForm />;
+        }
+        if (currentPage === 'Sports'){
+            return <Sports />;
         }
     };
 
