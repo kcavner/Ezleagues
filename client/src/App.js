@@ -11,8 +11,8 @@ import Container from './pages/Container';
 const httpLink = createHttpLink({
    //for local deployment use 'http://localhost:3001/graphql', for live deployment use '/graphql'
 
-  uri: '/graphql'
-  // uri: 'http://localhost:3001/graphql'
+  // uri: '/graphql'
+  uri: 'http://localhost:3001/graphql'
 });
 
 // Auth middleware that attaches JWT to every request as an Auth header
