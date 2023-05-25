@@ -11,18 +11,18 @@ if (Auth.loggedIn() === true){
     return <div className='home-dash'>
 
       </div>;
-  } else if (user.isPlayer === true) {
+  } else if (user.data.isPlayer === true) {
     // Render content for player
     return <div className='home-dash'>
-<button className='home-button' onclick="fetchData('organization')">Get Organizations</button>
+<button className='home-button'>Organizations</button>
 
-<button className='home-button' onclick="fetchData('sport')">Get Sports</button>
+<button className='home-button'>Sports</button>
 
-<button className='home-button' onclick="fetchData('team')">Get Teams</button>
+<button className='home-button'>Get Teams</button>
 
-<button className='home-button' onclick="fetchData('match')">Get Matches</button>
+<button className='home-button'>Get Matches</button>
 
-<button className='home-button' onclick="fetchData('user')">Get Users</button>
+<button className='home-button'>Get Users</button>
       </div>;
   } else if (user.isCaptain === true) {
     // Render content for captain
