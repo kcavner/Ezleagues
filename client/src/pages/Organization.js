@@ -45,10 +45,11 @@ const Organization = () => {
                 ) : (
                     <div>
                         {orgs.map((organization) => (
-                            <div key={organization._id}>
-                                <h3>{organization?.name}</h3>
-                                <p>{organization?.location}</p>
-                                <button onClick={() => handleFormSubmit(organization?.name)}>
+                            <div className='position relative w-80 h-100
+                            flex border mb-2.5 p-2.5 border-solid border-[#ccc]' key={organization._id}>
+                                <h3 class="m-4">{organization?.name}</h3>
+                                <p class="m-4">{organization?.location}</p>
+                                <button class="m-4" onClick={() => handleFormSubmit(organization?.name)}>
                                     JOIN
                                 </button>
                             </div>

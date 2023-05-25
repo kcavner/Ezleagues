@@ -28,7 +28,7 @@ const BoxComponent = ({ _id, date, teamsPlaying }) => {
     return (
         <div className="relative w-4/5 h-full flex flex-col border mb-2.5 p-2.5 border-solid border-[#ccc]">
           <span></span>
-          <div className="content">
+          <div className="content m-4">
             
             <h2>Match #:</h2> 
             <h3>Date:{date}</h3>
