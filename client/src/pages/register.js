@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
+import Login from './login'
 
 const CreateUserForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -14,8 +15,9 @@ const CreateUserForm = () => {
   const [isCaptain, setIsCaptain] = useState(false);
   const [isPlayer, setIsPlayer] = useState(false);
   const [isLeagueWorker, setIsLeagueWorker] = useState(false);
-
+  const [isAccountCreated, setIsAccountCreated] = useState(false);
   const [createUser, { loading, error }] = useMutation(CREATE_USER);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,12 +41,17 @@ const CreateUserForm = () => {
   
       // Handle successful registration
       console.log(data);
+      alert('Account created!')
+      setIsAccountCreated(true)
     } catch (error) {
       // Handle error
       console.log(error);
     }
   }
-  
+  if (isAccountCreated) {
+    return <Login />;
+  }
+
   return (
     <div className='registration-container'>
     <form onSubmit={handleSubmit} className="registration-form">
