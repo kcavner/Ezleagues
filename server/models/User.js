@@ -48,7 +48,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
             minlength: 4,
-            maxlength: 10,
+            maxlength: 64,
           },
         // birth date
         birthDate: {
