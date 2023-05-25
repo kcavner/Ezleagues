@@ -24,7 +24,7 @@ if (Auth.loggedIn() === true){
 
 <button className='home-button' onClick={() => handlePageChange('Teams')}>Get Teams</button>
 
-<button className='home-button'>Get Matches</button>
+<button className='home-button' onClick={() => handlePageChange('Match')}>Get Matches</button>
 
 <button className='home-button'>Get Users</button>
 {currentPage === 'Organization' && <Organization />}

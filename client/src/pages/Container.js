@@ -8,6 +8,7 @@ import Organization from "./Organization";
 import Sports from "./Sports";
 import Auth from "../utils/auth"
 import Teams from "./Teams";
+import Match from "./Match";
 
 
 export default function Container() {
@@ -39,6 +40,10 @@ export default function Container() {
         if (currentPage === 'Teams'){
             return <Teams />;
         }
+        if (currentPage === 'Match'){
+            return <Match />
+        }
+
     };
 
     
