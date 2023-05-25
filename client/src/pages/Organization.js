@@ -16,12 +16,20 @@ const Organization = () => {
     const userId = user ? user._id : '';
 
     const handleFormSubmit = async (organizationName) => {
-        const mutationResponse = await updateUser({
-          variables: {
-            userId: userId,
-            organizationName: organizationName
-          },
-        });
+        try{
+            const mutationResponse = await updateUser({
+                variables: {
+                  userId: userId,
+                  organizationName: organizationName
+                },
+            });
+            const updatedUser = mutationResponse.data.updateUser;
+            setFormState({ organizationName: updatedUser.organizationName });
+            alert('Organization successfully updated');
+            console.log(user);
+        } catch (error) {
+            console.log(error);
+        }
       };
 
     return (
