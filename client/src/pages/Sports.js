@@ -28,7 +28,7 @@ export default function Sports() {
 const BoxComponent = ({ title, description, startDate }) => {
     return (
         <div className="position relative w-80 h-100
-        flex">
+        flex border mb-2.5 p-2.5 border-solid border-[#ccc]">
           <span></span>
           <div className="content">
             {/* sport name */}
