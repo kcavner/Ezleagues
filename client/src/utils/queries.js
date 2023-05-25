@@ -51,6 +51,7 @@ query team {
     name
     association
     _id
+    roster
   }
 }
 `;

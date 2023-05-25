@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Organization from "./Organization";
 import Sports from "./Sports";
 import Auth from "../utils/auth"
+import Teams from "./Teams";
 
 
 export default function Container() {
@@ -34,6 +35,9 @@ export default function Container() {
         }
         if (currentPage === 'Sports'){
             return <Sports />;
+        }
+        if (currentPage === 'Teams'){
+            return <Teams />;
         }
     };
 
