@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Nav from "./Nav";
 import Home from "./home";
 import Login from "./login";
 import CreateUserForm from "./register";
 import Footer from "./Footer";
 import Organization from "./Organization";
+import Auth from "../utils/auth"
 
 export default function Container() {
-    const [currentPage, setCurrentPage] = useState('Home');
+    const [currentPage, setCurrentPage] = useState('Login');
+    const handlePageChange = (page) => setCurrentPage(page);
+    
+    useEffect(() => {
+        if (Auth.loggedIn() === true) {
+          setCurrentPage('Home');
+        }
+      }, []);
 
     const renderPage = () => {
         if (currentPage === 'Home') {
@@ -24,7 +32,7 @@ export default function Container() {
         }
     };
 
-    const handlePageChange = (page) => setCurrentPage(page);
+    
 
     return (
         <div className="min-h-screen flex flex-col mt-16">
